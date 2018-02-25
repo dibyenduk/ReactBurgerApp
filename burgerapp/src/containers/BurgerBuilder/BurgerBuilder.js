@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 
 const INGREDIENT_PRICES = {
         salad : 0.5,
@@ -87,7 +88,8 @@ class BurgerBuilder extends Component {
 
     render() {
         return (      
-        <Auxiliary>            
+        <Auxiliary>  
+            <Backdrop show={this.state.purchasing} clicked={this.cancelPurchaseHandler} />          
             <Modal show={this.state.purchasing} modalClosed={this.cancelPurchaseHandler} >
                 <OrderSummary 
                     ingredients = {this.state.ingredients}
